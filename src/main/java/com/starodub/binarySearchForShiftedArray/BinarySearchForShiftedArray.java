@@ -2,22 +2,8 @@ package com.starodub.binarySearchForShiftedArray;
 
 public class BinarySearchForShiftedArray {
 
-    private int search(int[] arr, int start, int end, int number) {
-
-        while (start <= end) {
-            int mid = (start + end) / 2;
-
-            if(arr[mid] == number) {
-                return mid;
-            }
-            if(arr[mid] > number) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return -1;
-
+    public int binarySearchForShiftedArrayWithRecursion(int[] arr, int number) {
+        return search(arr, 0, arr.length - 1, number);
     }
 
     public int binarySearchForShiftedArray(int arr[], int number) {
@@ -55,9 +41,7 @@ public class BinarySearchForShiftedArray {
         return arr[end] == number ? end : -1;
     }
 
-    public int binarySearchForShiftedArrayWithRecursion(int arr[], int number) {
-        int start = 0;
-        int end = arr.length - 1;
+    private int search(int arr[], int start, int end, int number) {
 
         int mid = (start + end) / 2;
         if (arr[mid] == number) {
