@@ -20,23 +20,22 @@ public class MergeSortInPlace {
     }
 
     private void merge(int[] arr, int start, int mid, int end) {
-        int left = start;
         int right = mid + 1;
 
         if (arr[mid] <= arr[right]) {
             return;
         }
 
-        while ((left <= mid) && (right <= end)) {
-            if (arr[left] <= arr[right]) {
-                left++;
+        while ((start <= mid) && (right <= end)) {
+            if (arr[start] <= arr[right]) {
+                start++;
             } else {
                 int tmp = arr[right];
-                for (int i = (right - left); i > 0; i--) {
-                    arr[i + left] = arr[i + left - 1];
+                for (int i = (right - start); i > 0; i--) {
+                    arr[i + start] = arr[i + start - 1];
                 }
-                arr[left] = tmp;
-                left++;
+                arr[start] = tmp;
+                start++;
                 mid++;
                 right++;
             }
